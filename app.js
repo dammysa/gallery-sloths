@@ -6,7 +6,9 @@ const buttons = document.getElementById('buttons');
 
 const fullscreenButton = document.getElementById('fullscreenButton');
 
-const sideButtons = document.getElementsByClassName('side-buttons');
+const sideButtons = document.getElementById('side-buttons');
+const buttonL = document.getElementById('button-Left');
+const buttonR = document.getElementById('button-Right');
 
 let images = [
   {
@@ -23,6 +25,8 @@ let images = [
   },
 ];
 
+let currentImageIndex;
+
 function createThumbnails() {
   images.forEach(function (image, index) {
     let imageElem = document.createElement('img');
@@ -32,19 +36,27 @@ function createThumbnails() {
       createBigImage(image);
       currentImageIndex = index;
     });
-    thumbnailContainer.appendChild(imageElem); // unsure why this needs to be here and not inline with the above. I believe it is because I do not need it linked to the createBigImage function.
+    thumbnailContainer.appendChild(imageElem);
+  });
+}
+createThumbnails();
+
+function indexPlusOne() {}
+
+function hideOtherElements() {
+  // https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+  fullscreenButton.addEventListener('click', function () {
+    if (thumbnailContainer.style.display === 'none' && sideButtons.style.display === 'none') {
+      thumbnailContainer.style.display = '';
+      sideButtons.style.display = '';
+    } else {
+      thumbnailContainer.style.display = 'none';
+      sideButtons.style.display = 'none';
+    }
   });
 }
 
-createThumbnails();
-
-function hideOtherElements() {}
-// https://medium.com/@theredwillows/moving-an-element-with-javascript-part-1-765c6a083d45 read for movement
-//   thumbnailContainer.innerHTML = '';
-//   displayContainer.innerHTML = '';
-//   sideButtons.innerHTML = '';
-//   fullscreenButton.innerHTML = 'Return';
-//hide thumbnail container, hide buttons, add a return button.
+hideOtherElements();
 
 function createBigImage(imgDetails) {
   const bigImage = document.createElement('img');

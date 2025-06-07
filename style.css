@@ -16,7 +16,7 @@
   position: relative; /* not sure if I need this */
 }
 
-.side-buttons {
+#side-buttons {
   display: flex;
   position: fixed;
   z-index: 2;
@@ -27,13 +27,13 @@
   right: 0px;
   left: 0px;
 }
-.side-buttons button {
+#side-buttons button {
   height: 100vh;
   width: 10vw;
   background-color: rgba(255, 255, 255, 0.301);
 }
 
-.fullscreenButton {
+#fullscreenButton {
   display: flex;
   position: fixed;
   bottom: 20px;
@@ -41,6 +41,12 @@
   right: 0;
   justify-content: center;
   z-index: 3;
+  height: 5vh;
+}
+
+#fullscreenButton button {
+  background-color: rgba(0, 0, 0, 0.555);
+  color: white;
 }
 
 img {
