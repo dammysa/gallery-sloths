@@ -1,4 +1,4 @@
-#thumbnailContainer {
+.thumbnailContainer {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -12,11 +12,11 @@
   background-color: rgba(0, 0, 0, 0.555);
 }
 
-#thumbnailContainer img {
+.thumbnailContainer img {
   position: relative; /* not sure if I need this */
 }
 
-#side-buttons {
+.side-buttons {
   display: flex;
   position: fixed;
   z-index: 2;
@@ -27,24 +27,25 @@
   right: 0px;
   left: 0px;
 }
-#side-buttons button {
+.side-buttons button {
   height: 100vh;
   width: 10vw;
   background-color: rgba(255, 255, 255, 0.301);
 }
 
-#fullscreenButton {
+.fullscreenButton {
   display: flex;
   position: fixed;
   bottom: 20px;
-  left: 0;
-  right: 0;
+  /* width: fit-content; */
+  left: 50%;
+  right: 50%;
   justify-content: center;
   z-index: 3;
   height: 5vh;
 }
 
-#fullscreenButton button {
+.fullscreenButton button {
   background-color: rgba(0, 0, 0, 0.555);
   color: white;
 }
@@ -54,7 +55,7 @@ img {
   width: auto;
 }
 
-#displayContainer {
+.displayContainer {
   display: flex;
   position: fixed;
   top: 0;
@@ -67,11 +68,35 @@ img {
   z-index: 1;
 }
 
-#displayContainer img {
+.displayContainer img {
   height: 100vh;
   width: 100vw;
   object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media (width <= 390px) {
+  .side-buttons {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+  }
+  .side-buttons button {
+    height: 5vh;
+    width: 100vw;
+  }
+  .thumbnailContainer {
+    display: none;
+  }
+  .fullscreenButton {
+    bottom: 5em;
+  }
 }
