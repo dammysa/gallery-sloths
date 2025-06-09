@@ -38,7 +38,7 @@ let images = [
 ];
 
 let currentImageIndex = 0;
-createBigImage(images[currentImageIndex]);
+createBigImage(images[currentImageIndex]); // or zero
 
 function createThumbnails() {
   images.forEach(function (image, index) {
